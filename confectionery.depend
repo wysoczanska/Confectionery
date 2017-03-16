@@ -1,0 +1,15 @@
+# depslib dependency file v1.0
+1489667437 source:/home/mion/s/183/mwysocz1/Desktop/confectionery/src/Confectionery.cpp
+	<iostream>
+	"../include/Confectionery.h"
+	"../include/Muffin.h"
+
+1489665227 /home/mion/s/183/mwysocz1/Desktop/confectionery/include/Confectionery.h
+
+1489667763 /home/mion/s/183/mwysocz1/Desktop/confectionery/include/Muffin.h
+	<string>
+
+1489667777 source:/home/mion/s/183/mwysocz1/Desktop/confectionery/src/Muffin.cpp
+	"../include/Muffin.h"
+	<string>
+
