@@ -10,6 +10,10 @@ Muffin::Muffin(string name, string description, float pricePerUnit, int quantity
         SetPrice(pricePerUnit);
         SetQuantity(quantity);
 }
+Muffin::Muffin()
+{
+
+}
 void Muffin::SetName(string m_name)
 {
     name=m_name;
@@ -27,5 +31,7 @@ void Muffin::SetQuantity(int m_quanity)
     quantity=m_quanity;
 }
 
-//Muffin::~Muffin()
+Muffin::~Muffin()
+{
+}
 

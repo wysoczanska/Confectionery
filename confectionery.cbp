@@ -31,6 +31,10 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="include/Confectionery.h" />
+		<Unit filename="include/Muffin.h" />
+		<Unit filename="src/Confectionery.cpp" />
+		<Unit filename="src/Muffin.cpp" />
 		<Extensions>
 			<code_completion />
 			<debugger />

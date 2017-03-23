@@ -13,6 +13,7 @@ class Muffin
         float pricePerUnit;
         int quantity;
         Muffin(string name, string description, float pricePerUnit, int quanity=0);
+        Muffin();
         void SetDescription(string);
         void SetName(string);
         void SetPrice(float);

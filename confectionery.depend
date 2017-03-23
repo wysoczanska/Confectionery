@@ -1,15 +1,24 @@
 # depslib dependency file v1.0
-1489667437 source:/home/mion/s/183/mwysocz1/Desktop/confectionery/src/Confectionery.cpp
+1490272685 source:/home/mion/s/183/mwysocz1/Desktop/confectionery/src/Confectionery.cpp
 	<iostream>
+	<vector>
 	"../include/Confectionery.h"
-	"../include/Muffin.h"
 
-1489665227 /home/mion/s/183/mwysocz1/Desktop/confectionery/include/Confectionery.h
+1490272536 /home/mion/s/183/mwysocz1/Desktop/confectionery/include/Confectionery.h
+	"Muffin.h"
+	"Cookie.h"
+	<array>
 
-1489667763 /home/mion/s/183/mwysocz1/Desktop/confectionery/include/Muffin.h
+1490271880 /home/mion/s/183/mwysocz1/Desktop/confectionery/include/Muffin.h
 	<string>
 
-1489667777 source:/home/mion/s/183/mwysocz1/Desktop/confectionery/src/Muffin.cpp
+1490272782 source:/home/mion/s/183/mwysocz1/Desktop/confectionery/src/Muffin.cpp
 	"../include/Muffin.h"
 	<string>
+
+1490268379 /home/mion/s/183/mwysocz1/Desktop/confectionery/include/Cookie.h
+	<string>
+
+1490272763 source:/home/mion/s/183/mwysocz1/Desktop/confectionery/src/Cookie.cpp
+	"../include/Cookie.h"
 
