@@ -8,19 +8,22 @@ using namespace std;
 class Muffin
 {
     public:
-        static int mcounter;
-        string name;
-        string description;
-        bool glutenFree;
+
         Muffin(string name, string description, float pricePerUnit, int quanity=0);
         Muffin(Muffin &muffin, int quanity);
         Muffin();
         ~Muffin();
         void operator-(int quantity_m);
+        string getDescription();
+        string getName();
+        float getPrice();
+        int getQuantity();
+
+    private:
+        string name;
+        string description;
         float pricePerUnit;
         int quantity;
-    protected:
-    private:
         void SetDescription(string);
         void SetName(string);
         void SetPrice(float);
