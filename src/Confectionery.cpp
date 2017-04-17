@@ -54,32 +54,7 @@ int Confectionery::cookiesCounter=0;
 int Confectionery::muffinsCounter=0;
 int Confectionery::cartsCounter=0;
 
-Cart Confectionery::sale()
-{
-    Cart *cart=new Cart();
-    cartsCounter++;
-    #ifdef _DEBUG
-    cout<<"Object of class Cart created automatically"<<endl;
-    cout<<""<<endl;
-    int cnt=getCounter("cart");
-    cout<<"carts objects counter: "<<cnt<<endl;
-    cout<<""<<cnt<<endl;
-    #endif // DEBUG
-    return *cart;
 
-
-
-}
-Cart Confectionery::addToCart(Cookie cookieToCart, Cart& cart1)
-{
-    cart1+cookieToCart;
-    return cart1;
-}
-Cart Confectionery::addToCart(Muffin muffinToCart, Cart& cart1)
-{
-    cart1+muffinToCart;
-    return cart1;
-}
 
 Confectionery::~Confectionery()
 {

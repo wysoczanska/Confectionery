@@ -8,24 +8,26 @@
 using namespace std;
 
 
-class Confectionery
-{
+class Confectionery {
 public:
     vector <Muffin> muffins;
     vector <Cookie> cookies;
     static int cookiesCounter;
     static int muffinsCounter;
     static int cartsCounter;
-        Confectionery(vector<Muffin> muffins, vector<Cookie> cookies);
-   Confectionery();
-        ~Confectionery();
-        Cart sale();
-        Cart addToCart(Muffin muffinToCart, Cart& cart);
-        Cart addToCart(Cookie cookieToCart, Cart& cart);
-        static int getCounter(string objectName);
-        void show();
-    protected:
-    private:
+    Confectionery(vector<Muffin> muffins, vector<Cookie> cookies);
+    Confectionery();
+    ~Confectionery();
+    template<class T>
+    Cart<Muffin, Cookie> addToCart(T toCart, Cart<Muffin, Cookie>& cart1)
+    {
+        cart1+toCart;
+        return cart1;
+    }
+    static int getCounter(string objectName);
+    void show();
+protected:
+private:
 
 };
 

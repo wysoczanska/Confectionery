@@ -24,7 +24,7 @@ void CartTest::run()
     string input_description="Very sweet!";
     float input_pricePerKg=6.99;
     int input_amount=2;
-    Cart *cart=new Cart();
+    Cart<Muffin, Cookie> * cart = new Cart<Muffin, Cookie>();
 
     Cookie *cookie=new Cookie(input_name, input_description, input_pricePerKg, input_amount);
     cout<<"Dynamic object of class Cookie created"<<endl;
@@ -43,7 +43,6 @@ void CartTest::run()
     cout<<"Checking out..."<<endl;
     cout<<""<<endl;
     *cookie-cookie2.amount;
-    delete cart;
 
     cout<<"Checking the amount left: "<<cookie->amount<<endl;
     if(cookie->amount==input_amount-cookie2.amount){cout<<"OK"<<endl;}

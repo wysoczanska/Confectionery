@@ -59,14 +59,17 @@ void ConfectioneryTest::run()
 
 
 cout<<"Sale: "<<endl;
-    Cart cart=Cart();
+    Cart<Muffin, Cookie> cart=Cart<Muffin, Cookie>();
     cart.show();
+    cout << "Expected: " << 0.0<< endl;
+
     cout<<""<<endl;
     cout<<"Adding blueberry cookie to cart: "<<endl;
     Cookie cookie11=Cookie(*cookie1,1.11);
     confectionery.addToCart(cookie11,cart);
     *cookie1-cookie11.amount;
     cart.show();
+    cout << "Expected: " << 7.7589 << endl;
 
     cout<<""<<endl;
     cout<<"Adding chocolate choc muffin to cart: "<<endl;
@@ -74,8 +77,10 @@ cout<<"Sale: "<<endl;
     confectionery.addToCart(muffinToCart,cart);
     *muffin3-muffinToCart.quantity;
     cart.show();
+    cout << "Expected: " << 37.6089 << endl;
     cout<<""<<endl;
     cout<<"Checkout: "<<cart.totalPrice<<endl;
+    cout << "Expected: " << 37.6089 << endl;
 
 
 

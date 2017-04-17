@@ -18,8 +18,6 @@ class Muffin
         string getName();
         float getPrice();
         int getQuantity();
-
-    private:
         string name;
         string description;
         float pricePerUnit;
@@ -28,6 +26,9 @@ class Muffin
         void SetName(string);
         void SetPrice(float);
         void SetQuantity(int);
+
+    private:
+
 
 };
 
