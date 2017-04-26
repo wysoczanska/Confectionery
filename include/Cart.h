@@ -5,6 +5,7 @@
 #include "../include/Cookie.h"
 #include <iostream>
 #include <typeinfo>
+#include <algorithm>
 
 
 using namespace std;
@@ -20,10 +21,10 @@ class Cart
         vector <T2> cookies;
         void operator+(T1 muffin_s);
         void operator+(T2 cookie_s);
+        void operator-(T1 muffin_s);
+        void operator-(T2 cookie_s);
         void show();
         friend void showProducts();
-
-
 };
 
 template <class T1, class T2>
@@ -49,7 +50,6 @@ void Cart<T1, T2>::operator+(T1 muffin_s)
     totalPrice=totalPrice+muffin_s.GetPrice()*muffin_s.GetAmount();
 }
 
-
 template <class T1, class T2>
 void Cart<T1, T2>::show()
 {
@@ -66,12 +66,17 @@ Cart<T1,T2>::~Cart(){}
 template<class T>
 void showProducts (vector<T> products)
 {
-    cout<<typeid(T).name()<<endl;
+    cout<<typeid(T).name()<<"s: "<<endl;
 
     for(typename std::vector<T>::iterator it = products.begin(); it!=products.end(); ++it)
     {
         std::cout<<it->GetName()<<", "<<it->GetDescription()<<", "<<it->GetAmount()<<endl;
     }
+    if (products.begin()==products.end())
+    {
+        cout<<"Empty :("<<endl;
+    }
 }
+
 
 #endif // CART_H

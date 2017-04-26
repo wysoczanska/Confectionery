@@ -2,7 +2,7 @@
 //#define _DEBUG
 #include <iostream>
 
-Cookie::Cookie(string name, string description, double pricePerKg, float amount)
+Cookie::Cookie(string name, string description, double pricePerKg, float amount, bool glutenFree_m)
 {
     #ifdef _DEBUG
     cout<< "Wywolany konstruktor klasy Cookie" <<endl;
@@ -12,6 +12,7 @@ Cookie::Cookie(string name, string description, double pricePerKg, float amount)
         SetName(name);
         SetPrice(pricePerKg);
         SetAmount(amount);
+        glutenFree=glutenFree_m;
 }
 Cookie::Cookie()
 {
@@ -28,13 +29,13 @@ Cookie::Cookie(Cookie &cookie, float quantity_m)
     amount=quantity_m;
 
 }
-void Cookie::operator-(float quantity_m)
+void Cookie::operator-(Cookie cookie)
 {
-    if(quantity_m<=amount)
+    if(cookie.amount<=amount)
     {
         int temp=amount;
-        amount=temp-quantity_m;
-    }else
+        amount=temp-cookie.amount;
+    }else //wjen there's not enough amount of this product left in stock
     {
         cerr<<"Unfortunatelty, we can't satisfy your sweet tooth! We only have: "<<amount<<"kg of cookies left."<<endl;
     }
@@ -73,11 +74,15 @@ string Cookie::GetDescription()
 {
     return description;
 }
-double Cookie::GetPrice()
+const double Cookie::GetPrice()
 {
     return pricePerKg;
 }
-float Cookie::GetAmount()
+const float Cookie::GetAmount()
 {
     return amount;
+}
+const bool Cookie::GetGluten()
+{
+    return glutenFree;
 }

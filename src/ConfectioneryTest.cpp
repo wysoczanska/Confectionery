@@ -37,52 +37,47 @@ void ConfectioneryTest::run()
 
     int muffinsCnt=confectionery.getCounter("muffin");
 
-    cout<<"Objects of class Muffin created: "<<muffinsCnt<<endl;
+    cout<<"Objects of class Muffin created: "<<muffinsCnt<<", Expected: 3"<<endl;
 
-    Cookie *cookie1= new Cookie("blueberry", "very sweet", 6.99, 20.9);
+    Cookie *cookie1= new Cookie("blueberry", "very sweet", 6.99, 20.9, false);
     confectionery.cookiesCounter++;
     confectionery.cookies.push_back(*cookie1);
-    Cookie *cookie2= new Cookie("triple chocolate chip", "very sweet", 3.99, 15.2);
+    Cookie *cookie2= new Cookie("triple chocolate chip", "very sweet", 3.99, 15.2, false);
     confectionery.cookiesCounter++;
     confectionery.cookies.push_back(*cookie2);
-    Cookie *cookie3= new Cookie("raspberry white chocolate", "very sweet", 6.01, 20);
+    Cookie *cookie3= new Cookie("raspberry white chocolate", "very sweet", 6.01, 20, false);
     confectionery.cookiesCounter++;
     confectionery.cookies.push_back(*cookie3);
-    Cookie *cookie4= new Cookie("chunky nut", "very sweet", 6.20, 11.1);
+    Cookie *cookie4= new Cookie("chunky nut", "very sweet", 6.20, 11.1, true);
     confectionery.cookiesCounter++;
     confectionery.cookies.push_back(*cookie4);
     int cookiesCnt=confectionery.getCounter("cookie");
-    cout<<"Objects of class Cookies created: "<<cookiesCnt<<endl;
+    cout<<"Objects of class Cookies created: "<<cookiesCnt<<", Expected: 4"<<endl;
     cout<<""<<endl;
-    cout<<"Today we offer: "<<endl;
     confectionery.show();
 
-
-cout<<"Sale: "<<endl;
-    Cart<Muffin, Cookie> cart=Cart<Muffin, Cookie>();
-    cart.show();
+    //Functionality tests
+    Cart<Muffin, Cookie> *cart=new Cart<Muffin, Cookie>();
+    cart->show(); //checking an empty instatiated cart
     cout << "Expected: " << 0.0<< endl;
-
     cout<<""<<endl;
     cout<<"Adding blueberry cookie to cart: "<<endl;
-    Cookie cookie11=Cookie(*cookie1,1.11);
-    confectionery.addToCart(cookie11,cart);
-    *cookie1-cookie11.GetAmount();
-    cart.show();
-    cout << "Expected: " << 7.7589 << endl;
+    *cart=confectionery.addToCart(*cookie4,1.11,*cart);
+    cart->show();
+    cout << "Total price of this cart expected: " << 6.882 << endl;
 
+    *cart=confectionery.addToCart(*cookie1,0.5,*cart);
+    cart->show();
+    cout << "Total price of this cart expected: " << 10.377 << endl;
     cout<<""<<endl;
     cout<<"Adding chocolate choc muffin to cart: "<<endl;
-    Muffin muffinToCart=Muffin(*muffin3,15);
-    confectionery.addToCart(muffinToCart,cart);
-    //*muffin3-muffinToCart.quantity;
-    cart.show();
-    cout << "Expected: " << 37.6089 << endl;
+    *cart=confectionery.addToCart(*muffin3,15,*cart);
+    cart->show();
+    cout << "Expected: " << 40.227 << endl;
     cout<<""<<endl;
-    cout<<"Checkout: "<<cart.totalPrice<<endl;
-    cout << "Expected: " << 37.6089 << endl;
+    cout<<"Checkout: "<<cart->totalPrice<<endl;
+    cout << "Expected: " << 40.227 << endl;
 
-
-
-
+    confectionery.glutenFreeProducts(*cart);
+    cout<<"Expected: 1 gluten free option"<<endl;
 }

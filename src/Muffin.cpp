@@ -31,12 +31,12 @@ Muffin::Muffin(Muffin &muffin, int quantity_m)
     amount=quantity_m;
 
 }
-void Muffin::operator-(int quantity_m)
+void Muffin::operator-(Muffin muffin)
 {
-    if(quantity_m<=amount)
+    if(muffin.amount<=amount)
     {
         int temp=amount;
-        amount=temp-quantity_m;
+        amount=temp-muffin.amount;
     }else
     {
         cerr<<"Unfortunately, we can't satisfy your sweet tooth! We only have: "<<amount<<" muffins left."<<endl;

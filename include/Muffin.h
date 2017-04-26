@@ -21,7 +21,7 @@ class Muffin
         Muffin(Muffin &muffin, int quanity);
         Muffin();
         ~Muffin();
-        void operator-(int quantity_m);
+        void operator-(Muffin);
         string GetDescription();
         string GetName();
         double GetPrice();

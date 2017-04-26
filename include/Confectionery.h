@@ -20,30 +20,25 @@ public:
     Confectionery(vector<Muffin> muffins, vector<Cookie> cookies);
     Confectionery();
     ~Confectionery();
+    void glutenFreeProducts(Cart<Muffin, Cookie>);
 
+    //template function - adding products (muffins /cookies) to cart
     template<class T>
-    Cart<Muffin, Cookie> addToCart(T toCart, Cart<Muffin, Cookie>& cart1)
+    Cart<Muffin, Cookie> addToCart(T &productToCart, double amount, Cart<Muffin, Cookie> cart1)
     {
-        cart1+toCart;
+        T cartPart = T(productToCart, amount); //creating a new object of the given class by copy constructor - with the amount given
+        cart1+cartPart; //adding an object to cart
+        productToCart-cartPart; //updating the amount of the give product left in stock
         return cart1;
     }
-//
-//    template<class T>
-//    void showProducts (vector<T> products)
-//    {
-//        cout<<typeid(T).name()<<endl;
-//
-//        for(typename std::vector<T>::iterator it = products.begin(); it!=products.end(); ++it)
-//        {
-//            std::cout<<it->GetName()<<", "<<it->GetDescription()<<", "<<it->GetAmount()<<endl;
-//        }
-//    }
 
     static int getCounter(string objectName);
     void show();
     friend void showProducts();
 
+
 };
+
 
 
 

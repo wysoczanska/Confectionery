@@ -25,7 +25,21 @@ void Confectionery::show()
     showProducts(cookies);
     cout<<""<<endl;
     showProducts(muffins);
+}
 
+
+void Confectionery::glutenFreeProducts (Cart<Muffin,Cookie> cart)
+{
+    cout<<"Gluten free options in your cart"<<endl;
+    int glutenFreeCounter=0;
+    for( std::vector<Cookie>::iterator it = cart.cookies.begin(); it!=cart.cookies.end(); ++it)
+    {
+        if(it->GetGluten()==true){
+            cout<< it->GetName()<<", "<<it->GetDescription()<<endl;
+            glutenFreeCounter++;
+        }
+    }
+    cout<<"Total: "<<glutenFreeCounter<<endl;
 }
 Confectionery::Confectionery()
 {

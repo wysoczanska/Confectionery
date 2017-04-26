@@ -18,14 +18,17 @@ class Cookie
     public:
         Cookie();
         ~Cookie();
-        Cookie(string name, string description, double pricePerKg, float amount=0);
+        Cookie(string name, string description, double pricePerKg, float amount, bool glutenfree);
         Cookie(Cookie &cookie, float amount);
         string GetDescription();
         string GetName();
-        double GetPrice();
-        float GetAmount();
-        void operator-(float amount_m);
+        const double GetPrice();
+        const float GetAmount();
+        const bool GetGluten();
+        void operator-(Cookie cookie);
 
 };
+
+
 
 #endif // COOKIE_H
