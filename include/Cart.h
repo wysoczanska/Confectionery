@@ -4,6 +4,8 @@
 #include "../include/Muffin.h"
 #include "../include/Cookie.h"
 #include <iostream>
+#include <typeinfo>
+
 
 using namespace std;
 
@@ -13,17 +15,15 @@ class Cart
     public:
         Cart<T1, T2>();
         ~Cart<T1, T2>();
-        float totalPrice;
+        double totalPrice;
         vector <T1> muffins;
         vector <T2> cookies;
         void operator+(T1 muffin_s);
         void operator+(T2 cookie_s);
         void show();
+        friend void showProducts();
 
 
-    protected:
-
-    private:
 };
 
 template <class T1, class T2>
@@ -31,7 +31,7 @@ Cart<T1, T2>::Cart()
 {
     vector<T1> muffins;
     vector<T2> cookies;
-    float totalPrice=0;
+    double totalPrice=0;
 }
 
 template <class T1, class T2>
@@ -49,25 +49,29 @@ void Cart<T1, T2>::operator+(T1 muffin_s)
     totalPrice=totalPrice+muffin_s.GetPrice()*muffin_s.GetAmount();
 }
 
+
 template <class T1, class T2>
 void Cart<T1, T2>::show()
 {
     cout<<"Products in cart:"<<endl;
     cout<<""<<endl;
-    cout<<"Cookies:"<<endl;
-    for(std::vector<Cookie>::iterator it = cookies.begin(); it!=cookies.end(); ++it)
-    {
-        cout<<it->GetName()<<", "<<it->GetAmount()<<endl;
-    }
-    cout<<"Muffins:"<<endl;
-    for(std::vector<Muffin>::iterator it = muffins.begin(); it!=muffins.end(); ++it)
-    {
-        //cout<<it->GetName()<<", "<<it->quantity<<endl;
-    }
-
+    showProducts(cookies);
+    showProducts(muffins);
     cout<<"Total: "<<totalPrice<<endl;
 }
+
 template <class T1, class T2>
 Cart<T1,T2>::~Cart(){}
+
+template<class T>
+void showProducts (vector<T> products)
+{
+    cout<<typeid(T).name()<<endl;
+
+    for(typename std::vector<T>::iterator it = products.begin(); it!=products.end(); ++it)
+    {
+        std::cout<<it->GetName()<<", "<<it->GetDescription()<<", "<<it->GetAmount()<<endl;
+    }
+}
 
 #endif // CART_H

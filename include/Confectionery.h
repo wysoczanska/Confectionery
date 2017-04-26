@@ -27,22 +27,21 @@ public:
         cart1+toCart;
         return cart1;
     }
-
-    template<class T>
-    void showProducts (vector<T> products)
-    {
-        cout<<typeid(T).name()<<endl;
-
-        for(typename std::vector<T>::iterator it = products.begin(); it!=products.end(); ++it)
-        {
-            std::cout<<it->GetName()<<", "<<it->GetDescription()<<", "<<it->GetAmount()<<endl;
-        }
-    }
+//
+//    template<class T>
+//    void showProducts (vector<T> products)
+//    {
+//        cout<<typeid(T).name()<<endl;
+//
+//        for(typename std::vector<T>::iterator it = products.begin(); it!=products.end(); ++it)
+//        {
+//            std::cout<<it->GetName()<<", "<<it->GetDescription()<<", "<<it->GetAmount()<<endl;
+//        }
+//    }
 
     static int getCounter(string objectName);
     void show();
-protected:
-private:
+    friend void showProducts();
 
 };
 

@@ -18,7 +18,7 @@ class Cookie
     public:
         Cookie();
         ~Cookie();
-        Cookie(string name, string description, float pricePerKg, float amount=0);
+        Cookie(string name, string description, double pricePerKg, float amount=0);
         Cookie(Cookie &cookie, float amount);
         string GetDescription();
         string GetName();

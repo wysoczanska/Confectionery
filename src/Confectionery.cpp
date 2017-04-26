@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 #include "../include/Confectionery.h"
-#define _DEBUG
+//#define _DEBUG
 #include "../include/Cart.h"
 #include "../include/muffinTest.h"
 #include"../include/CartTest.h"
@@ -25,11 +25,6 @@ void Confectionery::show()
     showProducts(cookies);
     cout<<""<<endl;
     showProducts(muffins);
-
-//    for(std::vector<Muffin>::iterator it = muffins.begin(); it!=muffins.end(); ++it)
-//    {
-//        cout<<it->name<<", "<<it->quantity<<endl;
-//    }
 
 }
 Confectionery::Confectionery()

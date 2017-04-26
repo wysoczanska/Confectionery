@@ -1,6 +1,6 @@
 #include "../include/Muffin.h"
 #include <string>
-#define _DEBUG
+//#define _DEBUG
 #include <iostream>
 
 using namespace std;

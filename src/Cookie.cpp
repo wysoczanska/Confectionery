@@ -1,8 +1,8 @@
 #include"../include/Cookie.h"
-#define _DEBUG
+//#define _DEBUG
 #include <iostream>
 
-Cookie::Cookie(string name, string description, float pricePerKg, float amount)
+Cookie::Cookie(string name, string description, double pricePerKg, float amount)
 {
     #ifdef _DEBUG
     cout<< "Wywolany konstruktor klasy Cookie" <<endl;
