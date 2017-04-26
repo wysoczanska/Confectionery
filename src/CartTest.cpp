@@ -42,10 +42,10 @@ void CartTest::run()
     cart->show();
     cout<<"Checking out..."<<endl;
     cout<<""<<endl;
-    *cookie-cookie2.amount;
+    *cookie-cookie2.GetAmount();
 
-    cout<<"Checking the amount left: "<<cookie->amount<<endl;
-    if(cookie->amount==input_amount-cookie2.amount){cout<<"OK"<<endl;}
+    cout<<"Checking the amount left: "<<cookie->GetAmount()<<endl;
+    if(cookie->GetAmount()==input_amount-cookie2.GetAmount()){cout<<"OK"<<endl;}
 
 
 }

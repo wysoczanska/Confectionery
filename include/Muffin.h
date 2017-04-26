@@ -7,29 +7,25 @@ using namespace std;
 
 class Muffin
 {
+        string name;
+        string description;
+        double pricePerUnit;
+        int amount;
+        bool glutenFree;
+        void SetDescription(string);
+        void SetName(string);
+        void SetPrice(float);
+        void SetAmount(int);
     public:
-
         Muffin(string name, string description, float pricePerUnit, int quanity=0);
         Muffin(Muffin &muffin, int quanity);
         Muffin();
         ~Muffin();
         void operator-(int quantity_m);
-        string getDescription();
-        string getName();
-        float getPrice();
-        int getQuantity();
-        string name;
-        string description;
-        float pricePerUnit;
-        int quantity;
-        void SetDescription(string);
-        void SetName(string);
-        void SetPrice(float);
-        void SetQuantity(int);
-
-    private:
-
-
+        string GetDescription();
+        string GetName();
+        double GetPrice();
+        int GetAmount();
 };
 
 #endif // MUFFIN_H

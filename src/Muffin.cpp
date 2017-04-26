@@ -7,16 +7,16 @@ using namespace std;
 
 
 
-Muffin::Muffin(string name, string description, float pricePerUnit, int quantity)
+Muffin::Muffin(string name, string description, float pricePerUnit, int amount)
 {
     #ifdef _DEBUG
-    cout<<"Wywolany konstruktor klasy Muffin z parametrami:"<<name<<", "<<description<<", "<<pricePerUnit<< ", "<<quantity<<endl;
+    cout<<"Wywolany konstruktor klasy Muffin z parametrami:"<<name<<", "<<description<<", "<<pricePerUnit<< ", "<<amount<<endl;
     cout<<""<<endl;
     #endif // DEBUG
         SetDescription(description);
         SetName(name);
         SetPrice(pricePerUnit);
-        SetQuantity(quantity);
+        SetAmount(amount);
 }
 
 Muffin::Muffin(Muffin &muffin, int quantity_m)
@@ -28,18 +28,18 @@ Muffin::Muffin(Muffin &muffin, int quantity_m)
     description=muffin.description;
     name=muffin.name;
     pricePerUnit=muffin.pricePerUnit;
-    quantity=quantity_m;
+    amount=quantity_m;
 
 }
 void Muffin::operator-(int quantity_m)
 {
-    if(quantity_m<=quantity)
+    if(quantity_m<=amount)
     {
-        int temp=quantity;
-        quantity=temp-quantity_m;
+        int temp=amount;
+        amount=temp-quantity_m;
     }else
     {
-        cerr<<"Unfortunately, we can't satisfy your sweet tooth! We only have: "<<quantity<<" muffins left."<<endl;
+        cerr<<"Unfortunately, we can't satisfy your sweet tooth! We only have: "<<amount<<" muffins left."<<endl;
     }
 }
 Muffin::Muffin()
@@ -58,9 +58,9 @@ void Muffin::SetPrice(float price)
 {
     pricePerUnit=price;
 }
-void Muffin::SetQuantity(int m_quanity)
+void Muffin::SetAmount(int m_quanity)
 {
-    quantity=m_quanity;
+    amount=m_quanity;
 }
 
 
@@ -71,5 +71,21 @@ Muffin::~Muffin()
     cout<<""<<endl;
     #endif // DEBUG
 
+}
+string Muffin::GetName()
+{
+    return name;
+}
+string Muffin::GetDescription()
+{
+    return description;
+}
+double Muffin::GetPrice()
+{
+    return pricePerUnit;
+}
+int Muffin::GetAmount()
+{
+    return amount;
 }
 

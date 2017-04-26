@@ -20,18 +20,16 @@ Confectionery::Confectionery(vector<Muffin> muffins_m, vector<Cookie> cookies_m)
 }
 void Confectionery::show()
 {
-    cout<<"Products in cart:"<<endl;
+    cout<<"Today we offer: "<<endl;
     cout<<""<<endl;
-    cout<<"Cookies:"<<endl;
-    for(std::vector<Cookie>::iterator it = cookies.begin(); it!=cookies.end(); ++it)
-    {
-        cout<<it->name<<", "<<it->amount<<endl;
-    }
-    cout<<"Muffins:"<<endl;
-    for(std::vector<Muffin>::iterator it = muffins.begin(); it!=muffins.end(); ++it)
-    {
-        cout<<it->name<<", "<<it->quantity<<endl;
-    }
+    showProducts(cookies);
+    cout<<""<<endl;
+    showProducts(muffins);
+
+//    for(std::vector<Muffin>::iterator it = muffins.begin(); it!=muffins.end(); ++it)
+//    {
+//        cout<<it->name<<", "<<it->quantity<<endl;
+//    }
 
 }
 Confectionery::Confectionery()
@@ -64,16 +62,4 @@ Confectionery::~Confectionery()
     #endif // DEBUG
     //dtor
 }
-int main()
-{
-    muffinTest test1;
-    test1.run();
-    CartTest cartTest;
-    cartTest.run();
-    ConfectioneryTest test3;
-    test3.run();
 
-
-    return 0;
-
-}

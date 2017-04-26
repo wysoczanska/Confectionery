@@ -64,3 +64,20 @@ Cookie::~Cookie()
     cout<<""<<endl;
     #endif // DEBUG
 }
+
+string Cookie::GetName()
+{
+    return name;
+}
+string Cookie::GetDescription()
+{
+    return description;
+}
+double Cookie::GetPrice()
+{
+    return pricePerKg;
+}
+float Cookie::GetAmount()
+{
+    return amount;
+}

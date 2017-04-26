@@ -24,7 +24,7 @@ void ConfectioneryTest::run()
     confectionery.show();
     cout<<"No cookies, no muffins"<<endl;
     cout<<""<<endl;
-    cout<<"Delivery!"<<endl;
+    cout<<"Seeding with some sample data..."<<endl;
     Muffin *muffin1= new Muffin("english delight", "very sweet", 3.99, 20);
     confectionery.muffinsCounter++;
     confectionery.muffins.push_back(*muffin1);
@@ -67,7 +67,7 @@ cout<<"Sale: "<<endl;
     cout<<"Adding blueberry cookie to cart: "<<endl;
     Cookie cookie11=Cookie(*cookie1,1.11);
     confectionery.addToCart(cookie11,cart);
-    *cookie1-cookie11.amount;
+    *cookie1-cookie11.GetAmount();
     cart.show();
     cout << "Expected: " << 7.7589 << endl;
 
@@ -75,7 +75,7 @@ cout<<"Sale: "<<endl;
     cout<<"Adding chocolate choc muffin to cart: "<<endl;
     Muffin muffinToCart=Muffin(*muffin3,15);
     confectionery.addToCart(muffinToCart,cart);
-    *muffin3-muffinToCart.quantity;
+    //*muffin3-muffinToCart.quantity;
     cart.show();
     cout << "Expected: " << 37.6089 << endl;
     cout<<""<<endl;

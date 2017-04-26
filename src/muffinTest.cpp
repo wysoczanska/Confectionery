@@ -28,16 +28,16 @@ void muffinTest::run()
 
     cout<<"Checking class members with given inputs\n"<<endl;
 
-    if(muffin1->name==input_name){cout<<"muffin name: OK"<<endl;}
+    if(muffin1->GetName()==input_name){cout<<"muffin name: OK"<<endl;}
     else{cout<<"muffin name: WRONG"<<endl;}
 
-    if(muffin1->description==input_description){cout<<"muffin description: OK"<<endl;}
+    if(muffin1->GetDescription()==input_description){cout<<"muffin description: OK"<<endl;}
     else{cout<<"muffin description: WRONG"<<endl;}
 
-    if(muffin1->pricePerUnit==input_pricePerUnit){cout<<"muffin price: OK"<<endl;}
+    if(muffin1->GetPrice()==input_pricePerUnit){cout<<"muffin price: OK"<<endl;}
     else{cout<<"muffin price: WRONG"<<endl;}
 
-    if(muffin1->quantity==input_quantity){cout<<"muffin quantity: OK"<<endl;}
+    if(muffin1->GetAmount()==input_quantity){cout<<"muffin amount: OK"<<endl;}
     else{cout<<"muffin quantity: WRONG"<<endl;}
 
     delete muffin1;
