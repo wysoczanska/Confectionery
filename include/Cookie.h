@@ -1,30 +1,23 @@
 #ifndef COOKIE_H
 #define COOKIE_H
 #include<string>
+#include "../include/Product.h"
 
 using namespace std;
 
-class Cookie
+class Cookie : public Product
 {
-        string name;
-        string description;
         double pricePerKg;
         float amount;
-        bool glutenFree;
-        void SetDescription(string);
-        void SetName(string);
-        void SetPrice(float);
+        void SetPrice(double);
         void SetAmount(float);
     public:
         Cookie();
         ~Cookie();
         Cookie(string name, string description, double pricePerKg, float amount, bool glutenfree);
         Cookie(Cookie &cookie, float amount);
-        string GetDescription();
-        string GetName();
         const double GetPrice();
         const float GetAmount();
-        const bool GetGluten();
         void operator-(Cookie cookie);
 
 };

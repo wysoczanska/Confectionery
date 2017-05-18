@@ -39,7 +39,7 @@ template <class T1, class T2>
 void Cart<T1, T2>::operator+(T2 cookie_s)
 {
     cookies.push_back(cookie_s);
-    totalPrice=totalPrice+cookie_s.GetPrice()*cookie_s.GetAmount();
+    totalPrice=totalPrice+cookie_s.totalPrice;
 }
 
 

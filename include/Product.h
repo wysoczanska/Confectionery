@@ -1,23 +1,26 @@
 #ifndef PRODUCT_H
 #define PRODUCT_H
+#include <string>
 
+using namespace std;
 
-template<class T> class Product
+class Product
 {
     public:
-        virtual ~Product();
-        Product(T product, float amount=0);
-        Product(Product &product, float amount);
-        void SetAmount(float);
-        void operator+(float amount_m);
-        void operator-(float amount_m);
-
-    protected:
-
-    private:
-        float amount;
-        T product;
+        string name;
+        string description;
+        double totalPrice;
+        bool glutenFree;
+        void SetDescription(string);
+        void SetName(string);
+        Product();
+        ~Product();
+        Product(string name, string description, double pricePerKg, float amount, bool glutenfree);
+        string GetDescription();
+        string GetName();
+        const bool GetGluten();
 
 };
+
 
 #endif // PRODUCT_H
