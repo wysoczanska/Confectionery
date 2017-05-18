@@ -7,7 +7,7 @@ using namespace std;
 
 
 
-Muffin::Muffin(string name, string description, float pricePerUnit, int amount)
+Muffin::Muffin(string name, string description, double pricePerUnit, int amount)
 {
     #ifdef _DEBUG
     cout<<"Wywolany konstruktor klasy Muffin z parametrami:"<<name<<", "<<description<<", "<<pricePerUnit<< ", "<<amount<<endl;
@@ -29,6 +29,7 @@ Muffin::Muffin(Muffin &muffin, int quantity_m)
     name=muffin.name;
     pricePerUnit=muffin.pricePerUnit;
     amount=quantity_m;
+    totalPrice=amount*pricePerUnit;
 
 }
 void Muffin::operator-(Muffin muffin)
@@ -46,15 +47,8 @@ Muffin::Muffin()
 {
 
 }
-void Muffin::SetName(string m_name)
-{
-    name=m_name;
-}
-void Muffin::SetDescription(string m_description)
-{
-    description=m_description;
-}
-void Muffin::SetPrice(float price)
+
+void Muffin::SetPrice(double price)
 {
     pricePerUnit=price;
 }
@@ -72,14 +66,14 @@ Muffin::~Muffin()
     #endif // DEBUG
 
 }
-string Muffin::GetName()
-{
-    return name;
-}
-string Muffin::GetDescription()
-{
-    return description;
-}
+//string Muffin::GetName()
+//{
+//    return name;
+//}
+//string Muffin::GetDescription()
+//{
+//    return description;
+//}
 double Muffin::GetPrice()
 {
     return pricePerUnit;

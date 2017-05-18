@@ -1,23 +1,27 @@
 #include "../include/Product.h"
 
-template <class T>
-Product<T>::Product(T product, float amount)
+Product::Product(){}
+
+Product::~Product(){}
+
+void Product::SetName(string m_name)
 {
-    this->SetAmount(amount);
+    name=m_name;
 }
-
-template <class Muffin>
-void Product<Muffin>::SetAmount(float m_amount) {
-    amount = (int)m_amount;
-}
-
-template <class Cookie>
-void Product<Cookie>::SetAmount(float m_amount) {
-    amount = (int)m_amount;
-}
-
-template <class T>
-Product<T>::~Product()
+void Product::SetDescription(string m_description)
 {
-    //dtor
+    description=m_description;
+}
+
+string Product::GetName()
+{
+    return name;
+}
+string Product::GetDescription()
+{
+    return description;
+}
+const bool Product::GetGluten()
+{
+    return glutenFree;
 }

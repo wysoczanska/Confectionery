@@ -27,6 +27,7 @@ Cookie::Cookie(Cookie &cookie, float quantity_m)
     name=cookie.name;
     pricePerKg=cookie.pricePerKg;
     amount=quantity_m;
+    totalPrice=amount*pricePerKg;
 
 }
 void Cookie::operator-(Cookie cookie)
@@ -41,15 +42,15 @@ void Cookie::operator-(Cookie cookie)
     }
 
 }
-void Cookie::SetName(string m_name)
-{
-    name=m_name;
-}
-void Cookie::SetDescription(string m_description)
-{
-    description=m_description;
-}
-void Cookie::SetPrice(float price)
+//void Cookie::SetName(string m_name)
+//{
+//    name=m_name;
+//}
+//void Cookie::SetDescription(string m_description)
+//{
+//    description=m_description;
+//}
+void Cookie::SetPrice(double price)
 {
     pricePerKg=price;
 }
@@ -66,14 +67,14 @@ Cookie::~Cookie()
     #endif // DEBUG
 }
 
-string Cookie::GetName()
-{
-    return name;
-}
-string Cookie::GetDescription()
-{
-    return description;
-}
+//string Cookie::GetName()
+//{
+//    return name;
+//}
+//string Cookie::GetDescription()
+//{
+//    return description;
+//}
 const double Cookie::GetPrice()
 {
     return pricePerKg;
@@ -82,7 +83,7 @@ const float Cookie::GetAmount()
 {
     return amount;
 }
-const bool Cookie::GetGluten()
-{
-    return glutenFree;
-}
+//const bool Cookie::GetGluten()
+//{
+//    return glutenFree;
+//}
