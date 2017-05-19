@@ -15,7 +15,7 @@ class Product
         void SetName(string);
         Product();
         ~Product();
-        Product(string name, string description, double pricePerKg, float amount, bool glutenfree);
+        //Product(string name, string description, double pricePerKg, float amount, bool glutenfree);
         string GetDescription();
         string GetName();
         const bool GetGluten();

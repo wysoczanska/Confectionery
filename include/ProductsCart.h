@@ -11,11 +11,14 @@ using namespace std;
 class ProductsCart
 {
     double totalPrice;
+    vector<Product> cart;
+
     public:
         ProductsCart();
-        GetTotalPrice();
+        double GetTotalPrice();
         virtual ~ProductsCart();
-        vector<Product> cart;
+        void ShowCart();
+        void operator+(Product);
 
 
 };
