@@ -45,19 +45,14 @@ Muffin::Muffin(Muffin &muffin, int quantity_m)
     name=muffin.name;
     pricePerUnit=muffin.pricePerUnit;
     amount=quantity_m;
-
 }
+
 void Muffin::operator-(Muffin muffin)
 {
-    if(muffin.amount<=amount)
-    {
-        int temp=amount;
-        amount=temp-muffin.amount;
-    }else
-    {
-        cerr<<"Unfortunately, we can't satisfy your sweet tooth! We only have: "<<amount<<" muffins left."<<endl;
-    }
+    int temp=amount;
+    amount=temp-muffin.amount;
 }
+
 Muffin::Muffin()
 {
 
@@ -75,17 +70,6 @@ void Muffin::SetAmount(int m_quanity)
 {
     return amount*pricePerUnit;
 }
-//void Muffin::operator<<()
-//{
-//    cout<< "Stan obiektu\n"<<endl;
-//    cout<<"Name: "<<GetName()<<endl;
-//    cout<<"\nDescription: "<<GetDescription()<<endl;
-//    cout<<"\nAmount: "<<GetAmount()<<endl;
-//    cout<<"\nPrice per 1: "<<GetPrice()<<endl;
-//    cout<<"\nTotalPrice: "<<GetTotalPrice()<<endl;
-//    cout<<"\n is gluten free?: "<<GetGluten()<<endl;
-//}
-
 
 Muffin::~Muffin()
 {
@@ -95,14 +79,7 @@ Muffin::~Muffin()
     #endif // DEBUG
 
 }
-//string Muffin::GetName()
-//{
-//    return name;
-//}
-//string Muffin::GetDescription()
-//{
-//    return description;
-//}
+
 double Muffin::GetPrice()
 {
     return pricePerUnit;

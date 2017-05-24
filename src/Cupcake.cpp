@@ -18,6 +18,19 @@ Cupcake::Cupcake(string name, string description, double pricePerUnit, int quant
     cream=cream_m;
     lactoseFree=lactoseFree_m;
 }
+Cupcake::Cupcake(Cupcake &cup, int quantity_m)
+{
+    #ifdef _DEBUG
+    cout<< "Wywolany konstruktor kopiujacy klasy Muffin" <<endl;
+    cout<<""<<endl;
+    #endif // DEBUG
+    description=cup.description;
+    name=cup.name;
+    pricePerUnit=cup.pricePerUnit;
+    amount=quantity_m;
+    cream=cup.cream;
+    lactoseFree=cup.lactoseFree;
+}
 
 Cupcake::~Cupcake()
 {

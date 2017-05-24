@@ -7,13 +7,13 @@
 
 class Tests
 {
-    void seed(Confectionery *&confecionery);
-public:
-    Tests();
-    ~Tests();
-    void ProductsCartTest();
-
-
+    public:
+        void seed(Confectionery *&confecionery);
+        Tests();
+        ~Tests();
+        void ConfectioneryTest();
+        void ProductsCartTest();
+        void CupcakeTest();
 };
 
 

@@ -53,14 +53,8 @@ bool Cookie::GetGluten()
 
 void Cookie::operator-(Cookie cookie)
 {
-    if(cookie.amount<=amount)
-    {
-        int temp=amount;
-        amount=temp-cookie.amount;
-    }else //wjen there's not enough amount of this product left in stock
-    {
-        cerr<<"Unfortunatelty, we can't satisfy your sweet tooth! We only have: "<<amount<<"kg of cookies left."<<endl;
-    }
+    int temp=amount;
+    amount=temp-cookie.amount;
 
 }
 double Cookie::GetTotalPrice()

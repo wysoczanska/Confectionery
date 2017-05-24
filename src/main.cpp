@@ -10,10 +10,17 @@
 int main()
 {
     Tests tests;
+    tests.ConfectioneryTest();
+
     tests.ProductsCartTest();
 
-    //ConfectioneryTest test3;
-    //test3.run();
+    tests.CupcakeTest();
+
+    Confectionery *conf=new Confectionery();
+    tests.seed(conf);
+    conf->Sale();
+
 
     return 0;
 }
+

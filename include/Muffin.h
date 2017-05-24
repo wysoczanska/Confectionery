@@ -9,10 +9,9 @@ using namespace std;
 
 class Muffin : public Product
 {
+    protected:
         double pricePerUnit;
         int amount;
-
-    protected:
         void SetPrice(double);
         void SetAmount(int);
     public:

@@ -8,6 +8,7 @@ class Cupcake : public Muffin
     public:
         Cupcake();
         Cupcake(string name, string description, double pricePerUnit, int quanity, bool,string, bool);
+        Cupcake(Cupcake&,int);
         string GetCream();
         bool GetLactose();
         ~Cupcake();

@@ -15,36 +15,71 @@ Tests::~Tests()
 {
 }
 
-void Tests::ProductsCartTest()
+void Tests::CupcakeTest()
+{
+    Cupcake *cup=new Cupcake("salted carmel", "very sweet", 3.99, 10, false,"rose flavored whipped cream", false);
+    cout<<*cup<<endl;
+    Muffin *muff=cup;
+    cout<<"Cupcake as Muffin: "<<endl;
+    cout<<*muff<<endl;
+
+    Product *prod=cup;
+    cout<<"Cupcake as Product:\n"<<endl;
+    cout<<*prod<<endl;
+
+}
+void Tests::ConfectioneryTest()
 {
     Confectionery *confectionery=new Confectionery();
     confectionery->show();
     seed(confectionery);
     confectionery->show();
+
+    //tworzymy koszyczek
     ProductsCart *cart=new ProductsCart();
 
     try
     {
-        *cart=confectionery->addToCart(confectionery->muffins.at(3),1,*cart);
-        *cart=confectionery->addToCart(confectionery->cookies.at(2),1.5, *cart);
-        *cart=confectionery->addToCart(confectionery->cookies.at(3),0.5, *cart);
-        cout<<*cart->cart.at(2);
+        //dodajemy produkty do koszyczka
+        //ten jest z bledem bo nie ma nic w wektorze muffinek pod tym indeksem (max3) -> wylapany wyjatek
+        *cart=confectionery->addToCart(confectionery->muffins.at(4),1,*cart);
 
-    }catch(exception ex)
+    }catch(exception& ex)
     {
-
+        cerr<<ex.what()<<endl;
     }
+    try
+    {
+        //te sa OK
+        *cart=confectionery->addToCart(confectionery->cookies.at(2),1.5, *cart);
+        *cart=confectionery->addToCart(confectionery->cupcakes.at(1),1,*cart);
+
+    }catch(exception& ex)
+    {
+        cerr<<ex.what()<<endl;
+    }
+    cart->ShowCart();
+    cout<<"\nExpected:\nraspberry white chocolate, very sweet \nsalted carmel, very sweet\nTotal Price: 13.005\n\n"<<endl;
+
+    cart->glutenFreeProducts();
+    cout<<"Expected: 2\n"<<endl;
+
+}
+
+void Tests::ProductsCartTest()
+{
+    Muffin *muffin1= new Muffin("english delight", "very sweet", 3.99, 20, false);
+    ProductsCart *cart=new ProductsCart();
+    cart->ShowCart();
+    cout<<"\nExpected:\nEmpty :(\nTotal: 0\n"<<endl;
+
+    //dodanie muffinki do koszyka
+    *cart+muffin1;
 
     cart->ShowCart();
 
+    cout<<"\nExpected:\nenglish delight, very sweet\nTotal Price: 79.8\n"<<endl;
 
-    cout<<confectionery->muffins.at(2);
-    cout<<confectionery->cookies.at(2);
-
-
-
-    cart->glutenFreeProducts();
-    cout<<"Expected: 2"<<endl;
 }
 
 void Tests::seed(Confectionery *&confectionery)
@@ -81,7 +116,9 @@ void Tests::seed(Confectionery *&confectionery)
         cout<<""<<endl;
 
         Cupcake *cupcake1=new Cupcake("toffie fudge and crisps", "sweet", 4.99, 15, true,"coconut milk based with almonds", true);
-        confectionery->muffins.push_back(*cupcake1);
+        Cupcake *cupcake2=new Cupcake("salted carmel", "very sweet", 3.99, 10, false,"rose flavored whipped cream", false);
+        confectionery->cupcakes.push_back(*cupcake1);
+        confectionery->cupcakes.push_back(*cupcake2);
 
 
 }
