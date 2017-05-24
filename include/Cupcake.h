@@ -11,6 +11,13 @@ class Cupcake : public Muffin
         string GetCream();
         bool GetLactose();
         ~Cupcake();
+        friend ostream& operator<<(ostream& os, Cupcake& muff)
+            {
+                return os<<"\nState of this object:\n"<<
+                "Name: "<<muff.GetName()<<"\nDescription: "<<muff.GetDescription()
+                <<"\n is gluten free?: "<<muff.GetGluten()<<"\nQuantity: "<<muff.GetAmount()<<"\nPrice per 1: "<<muff.GetPrice()<<"\nCream: "<<muff.GetCream()<<"\nis lactose free? :"<<muff.GetLactose()<<"\n"<<endl;
+            }
+
     private:
         string cream;
         bool lactoseFree;

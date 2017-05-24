@@ -21,6 +21,20 @@ Muffin::Muffin(string name, string description,double pricePerUnit, int amount, 
 
 }
 
+
+string Muffin::GetName()
+{
+    return name;
+}
+string Muffin::GetDescription()
+{
+    return description;
+}
+bool Muffin::GetGluten()
+{
+    return glutenFree;
+}
+
 Muffin::Muffin(Muffin &muffin, int quantity_m)
 {
     #ifdef _DEBUG
@@ -31,7 +45,6 @@ Muffin::Muffin(Muffin &muffin, int quantity_m)
     name=muffin.name;
     pricePerUnit=muffin.pricePerUnit;
     amount=quantity_m;
-    //totalPrice=amount*pricePerUnit;
 
 }
 void Muffin::operator-(Muffin muffin)
@@ -62,6 +75,16 @@ void Muffin::SetAmount(int m_quanity)
 {
     return amount*pricePerUnit;
 }
+//void Muffin::operator<<()
+//{
+//    cout<< "Stan obiektu\n"<<endl;
+//    cout<<"Name: "<<GetName()<<endl;
+//    cout<<"\nDescription: "<<GetDescription()<<endl;
+//    cout<<"\nAmount: "<<GetAmount()<<endl;
+//    cout<<"\nPrice per 1: "<<GetPrice()<<endl;
+//    cout<<"\nTotalPrice: "<<GetTotalPrice()<<endl;
+//    cout<<"\n is gluten free?: "<<GetGluten()<<endl;
+//}
 
 
 Muffin::~Muffin()

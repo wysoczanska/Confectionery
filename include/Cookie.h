@@ -21,6 +21,15 @@ class Cookie : public Product
         const float GetAmount();
         void operator-(Cookie cookie);
         double GetTotalPrice();
+        string GetDescription();
+        string GetName();
+        bool GetGluten();
+        friend ostream& operator<<(ostream& os, Cookie& muff)
+        {
+            return os<<"\nState of this object:\n"<<
+            "Name: "<<muff.GetName()<<"\nDescription: "<<muff.GetDescription()
+            <<"\n is gluten free?: "<<muff.GetGluten()<<"\nQuantity: "<<muff.GetAmount()<<"\nPrice per 1 kg: "<<muff.GetPrice()<<"\n"<<endl;
+        }
 
 
 };

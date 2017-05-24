@@ -27,9 +27,30 @@ Cookie::Cookie(Cookie &cookie, float quantity_m)
     name=cookie.name;
     pricePerKg=cookie.pricePerKg;
     amount=quantity_m;
-//    totalPrice=amount*pricePerKg;
-
 }
+string Cookie::GetName()
+{
+    return name;
+}
+string Cookie::GetDescription()
+{
+    return description;
+}
+bool Cookie::GetGluten()
+{
+    return glutenFree;
+}
+//void Cookie::operator<<()
+//{
+//    cout<< "Stan obiektu\n"<<endl;
+//    cout<<"Name: "<<GetName()<<endl;
+//    cout<<"\nDescription: "<<GetDescription()<<endl;
+//    cout<<"\nAmount: "<<GetAmount()<<endl;
+//    cout<<"\nPrice per 1 kg: "<<GetPrice()<<endl;
+//    cout<<"\nTotalPrice: "<<GetTotalPrice()<<endl;
+//    cout<<"\n is gluten free?: "<<GetGluten()<<endl;
+//}
+
 void Cookie::operator-(Cookie cookie)
 {
     if(cookie.amount<=amount)

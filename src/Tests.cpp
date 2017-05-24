@@ -25,9 +25,10 @@ void Tests::ProductsCartTest()
 
     try
     {
-        *cart=confectionery->addToCart(confectionery->muffins.at(2),1,*cart);
+        *cart=confectionery->addToCart(confectionery->muffins.at(3),1,*cart);
         *cart=confectionery->addToCart(confectionery->cookies.at(2),1.5, *cart);
         *cart=confectionery->addToCart(confectionery->cookies.at(3),0.5, *cart);
+        cout<<*cart->cart.at(2);
 
     }catch(exception ex)
     {
@@ -35,6 +36,11 @@ void Tests::ProductsCartTest()
     }
 
     cart->ShowCart();
+
+
+    cout<<confectionery->muffins.at(2);
+    cout<<confectionery->cookies.at(2);
+
 
 
     cart->glutenFreeProducts();

@@ -1,4 +1,5 @@
 #include "../include/Product.h"
+#include <iostream>
 
 Product::Product(){}
 
@@ -16,10 +17,8 @@ void Product::SetGluten(bool m_glutenFree)
 {
     glutenFree=m_glutenFree;
 }
-//double Product::GetTotalPrice()
-//{
-//    return 0;
-//}
+
+
 string Product::GetName()
 {
     return name;
