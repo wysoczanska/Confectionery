@@ -7,18 +7,19 @@ using namespace std;
 class Product
 {
     public:
-        string name;
-        string description;
-        double totalPrice;
-        bool glutenFree;
+        virtual ~Product();
+        virtual string GetDescription();
+        virtual string GetName();
+        virtual bool GetGluten();
+        virtual double GetTotalPrice()=0;
+    protected:
+        void SetGluten(bool);
         void SetDescription(string);
         void SetName(string);
         Product();
-        ~Product();
-        //Product(string name, string description, double pricePerKg, float amount, bool glutenfree);
-        string GetDescription();
-        string GetName();
-        const bool GetGluten();
+        string name;
+        string description;
+        bool glutenFree;
 
 };
 

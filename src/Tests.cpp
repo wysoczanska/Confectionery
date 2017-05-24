@@ -22,12 +22,12 @@ void Tests::ProductsCartTest()
     seed(confectionery);
     confectionery->show();
     ProductsCart *cart=new ProductsCart();
-    cout<<confectionery->muffins.at(2).GetName()<<endl;
-    *cart=confectionery->addToCart(confectionery->muffins.at(2),1,*cart);
 
     try
     {
-        confectionery->addToCart(confectionery->muffins.at(2),1,*cart);
+        *cart=confectionery->addToCart(confectionery->muffins.at(2),1,*cart);
+        *cart=confectionery->addToCart(confectionery->cookies.at(2),1.5, *cart);
+        *cart=confectionery->addToCart(confectionery->cookies.at(3),0.5, *cart);
 
     }catch(exception ex)
     {
@@ -37,20 +37,20 @@ void Tests::ProductsCartTest()
     cart->ShowCart();
 
 
-
-
+    cart->glutenFreeProducts();
+    cout<<"Expected: 2"<<endl;
 }
 
 void Tests::seed(Confectionery *&confectionery)
 {
      cout<<"Seeding with some sample data..."<<endl;
-        Muffin *muffin1= new Muffin("english delight", "very sweet", 3.99, 20);
+        Muffin *muffin1= new Muffin("english delight", "very sweet", 3.99, 20, false);
         confectionery->muffinsCounter++;
         confectionery->muffins.push_back(*muffin1);
-        Muffin *muffin2= new Muffin("blueberry heaven", "semi sweet", 2.99, 10);
+        Muffin *muffin2= new Muffin("blueberry heaven", "semi sweet", 2.99, 10, true);
         confectionery->muffinsCounter++;
         confectionery->muffins.push_back(*muffin2);
-        Muffin *muffin3= new Muffin("chocolate choc", "semi sweet", 1.99, 15);
+        Muffin *muffin3= new Muffin("chocolate choc", "semi sweet", 1.99, 15, true);
         confectionery->muffinsCounter++;
         confectionery->muffins.push_back(*muffin3);
 
@@ -73,6 +73,9 @@ void Tests::seed(Confectionery *&confectionery)
         int cookiesCnt=confectionery->getCounter("cookie");
         cout<<"Objects of class Cookies created: "<<cookiesCnt<<", Expected: 4"<<endl;
         cout<<""<<endl;
+
+        Cupcake *cupcake1=new Cupcake("toffie fudge and crisps", "sweet", 4.99, 15, true,"coconut milk based with almonds", true);
+        confectionery->muffins.push_back(*cupcake1);
 
 
 }

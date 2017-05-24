@@ -27,20 +27,13 @@ void Confectionery::show()
     showProducts(muffins);
 }
 
-
-void Confectionery::glutenFreeProducts (ProductsCart cart)
+void Confectionery::Checkout(ProductsCart &cart)
 {
-//    cout<<"Gluten free options in your cart"<<endl;
-//    int glutenFreeCounter=0;
-//    for( std::vector<Cookie>::iterator it = cart.cookies.begin(); it!=cart.cookies.end(); ++it)
-//    {
-//        if(it->GetGluten()==true){
-//            cout<< it->GetName()<<", "<<it->GetDescription()<<endl;
-//            glutenFreeCounter++;
-//        }
-//    }
-//    cout<<"Total: "<<glutenFreeCounter<<endl;
+    cout<<"Total: "<<cart.GetTotalPrice()<<endl;
+    cart.~ProductsCart();
+
 }
+
 Confectionery::Confectionery()
 {
     #ifdef _DEBUG
@@ -53,21 +46,16 @@ Confectionery::Confectionery()
 int Confectionery::getCounter(string objectType)
 {
     if(objectType=="cookie"){return cookiesCounter;}
-    if(objectType=="muffin"){return muffinsCounter;}
-    if(objectType=="cart"){return cartsCounter;}
+    else if(objectType=="muffin"){return muffinsCounter;}
+    else if(objectType=="cart"){return cartsCounter;}
+    else return 0;
+
 
 }
 int Confectionery::cookiesCounter=0;
 int Confectionery::muffinsCounter=0;
 int Confectionery::cartsCounter=0;
 
-//ProductsCart Confectionery::addToCart(Product &productToCart, double amount, ProductsCart cart)
-//{
-//    //Product productToCart=Product(product,amount);//creating a new object of the given class by copy constructor - with the amount given
-//    cart+productToCart; //adding an object to cart
-//    productToCart-product;//updating the amount of the give product left in stock
-//    return cart;
-//}
 
 
 

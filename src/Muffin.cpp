@@ -7,7 +7,7 @@ using namespace std;
 
 
 
-Muffin::Muffin(string name, string description, double pricePerUnit, int amount)
+Muffin::Muffin(string name, string description,double pricePerUnit, int amount, bool glutenFree_m)
 {
     #ifdef _DEBUG
     cout<<"Wywolany konstruktor klasy Muffin z parametrami:"<<name<<", "<<description<<", "<<pricePerUnit<< ", "<<amount<<endl;
@@ -15,8 +15,10 @@ Muffin::Muffin(string name, string description, double pricePerUnit, int amount)
     #endif // DEBUG
         SetDescription(description);
         SetName(name);
+        SetGluten(glutenFree_m);
         SetPrice(pricePerUnit);
         SetAmount(amount);
+
 }
 
 Muffin::Muffin(Muffin &muffin, int quantity_m)
@@ -29,7 +31,7 @@ Muffin::Muffin(Muffin &muffin, int quantity_m)
     name=muffin.name;
     pricePerUnit=muffin.pricePerUnit;
     amount=quantity_m;
-    totalPrice=amount*pricePerUnit;
+    //totalPrice=amount*pricePerUnit;
 
 }
 void Muffin::operator-(Muffin muffin)
@@ -55,6 +57,10 @@ void Muffin::SetPrice(double price)
 void Muffin::SetAmount(int m_quanity)
 {
     amount=m_quanity;
+}
+ double Muffin::GetTotalPrice()
+{
+    return amount*pricePerUnit;
 }
 
 

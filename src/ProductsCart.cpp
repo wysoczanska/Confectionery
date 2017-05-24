@@ -9,11 +9,11 @@ ProductsCart::~ProductsCart()
 {
     //dtor
 }
-void ProductsCart::operator+(Product product)
-{
-    cart.push_back(product);
-    totalPrice=totalPrice+product.totalPrice;
-}
+//void ProductsCart::operator+(Product product)
+//{
+//    cart.push_back(product);
+//    totalPrice=totalPrice+product.GetTotalPrice();
+//}
 
 double ProductsCart::GetTotalPrice()
 {
@@ -22,9 +22,10 @@ double ProductsCart::GetTotalPrice()
 
 void ProductsCart::ShowCart()
 {
-    for(typename std::vector<Product>::iterator it = cart.begin(); it!=cart.end(); ++it)
+    cout<<"\nProducts in cart: \n"<<endl;
+    for(std::vector<Product*>::iterator it = cart.begin(); it!=cart.end(); ++it)
     {
-        std::cout<<it->GetName()<<", "<<it->GetDescription()<<endl;
+        std::cout<<(*it)->GetName()<<", "<<(*it)->GetDescription()<<endl;
     }
     if (cart.begin()==cart.end())
     {
@@ -33,3 +34,16 @@ void ProductsCart::ShowCart()
     cout<<"Total Price: "<<GetTotalPrice()<<endl;
 
 };
+void ProductsCart::glutenFreeProducts ()
+{
+    cout<<"Gluten free options in your cart"<<endl;
+    int glutenFreeCounter=0;
+    for(std::vector<Product*>::iterator it = cart.begin(); it!=cart.end(); ++it)
+    {
+        if((*it)->GetGluten()==1){
+            cout<< (*it)->GetName()<<", "<<(*it)->GetDescription()<<endl;
+            glutenFreeCounter++;
+        }
+    }
+    cout<<"Total: "<<glutenFreeCounter<<endl;
+}

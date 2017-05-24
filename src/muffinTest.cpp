@@ -23,7 +23,7 @@ void muffinTest::run()
     float input_pricePerUnit=6.99;
     int input_quantity=20;
 
-    Muffin *muffin1 = new Muffin(input_name, input_description, input_pricePerUnit, input_quantity);
+    Muffin *muffin1 = new Muffin(input_name, input_description, input_pricePerUnit, input_quantity, false);
     cout<<"Dynamic instance of class Muffin created"<<endl;
 
     cout<<"Checking class members with given inputs\n"<<endl;

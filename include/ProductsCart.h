@@ -11,16 +11,21 @@ using namespace std;
 class ProductsCart
 {
     double totalPrice;
-    vector<Product> cart;
 
     public:
+        vector<Product*> cart;
         ProductsCart();
         double GetTotalPrice();
         virtual ~ProductsCart();
         void ShowCart();
-        void operator+(Product);
-
-
+        //void operator+(Product);
+        void glutenFreeProducts();
+        template <class T1>
+        void operator+(T1 *product)
+        {
+            cart.push_back(product);
+            totalPrice=totalPrice+product->GetTotalPrice();
+        }
 };
 
 #endif // PRODUCTSCART_H

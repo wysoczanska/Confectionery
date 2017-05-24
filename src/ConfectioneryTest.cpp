@@ -25,13 +25,13 @@ void ConfectioneryTest::run()
     cout<<"No cookies, no muffins"<<endl;
     cout<<""<<endl;
     cout<<"Seeding with some sample data..."<<endl;
-    Muffin *muffin1= new Muffin("english delight", "very sweet", 3.99, 20);
+    Muffin *muffin1= new Muffin("english delight", "very sweet", 3.99, 20, false);
     confectionery.muffinsCounter++;
     confectionery.muffins.push_back(*muffin1);
-    Muffin *muffin2= new Muffin("blueberry heaven", "semi sweet", 2.99, 10);
+    Muffin *muffin2= new Muffin("blueberry heaven", "semi sweet", 2.99, 10, false);
     confectionery.muffinsCounter++;
     confectionery.muffins.push_back(*muffin2);
-    Muffin *muffin3= new Muffin("chocolate choc", "semi sweet", 1.99, 15);
+    Muffin *muffin3= new Muffin("chocolate choc", "semi sweet", 1.99, 15, false);
     confectionery.muffinsCounter++;
 //    confectionery.muffins.push_back(*muffin3);
 //

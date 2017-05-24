@@ -11,6 +11,7 @@ class Cookie : public Product
         float amount;
         void SetPrice(double);
         void SetAmount(float);
+
     public:
         Cookie();
         ~Cookie();
@@ -19,6 +20,8 @@ class Cookie : public Product
         const double GetPrice();
         const float GetAmount();
         void operator-(Cookie cookie);
+        double GetTotalPrice();
+
 
 };
 

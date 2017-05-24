@@ -2,7 +2,7 @@
 //#define _DEBUG
 #include <iostream>
 
-Cookie::Cookie(string name, string description, double pricePerKg, float amount, bool glutenFree_m)
+Cookie::Cookie(string name, string description, double pricePerKg, float amount=0, bool glutenFree_m=false)
 {
     #ifdef _DEBUG
     cout<< "Wywolany konstruktor klasy Cookie" <<endl;
@@ -12,7 +12,7 @@ Cookie::Cookie(string name, string description, double pricePerKg, float amount,
         SetName(name);
         SetPrice(pricePerKg);
         SetAmount(amount);
-        glutenFree=glutenFree_m;
+        SetGluten(glutenFree_m);
 }
 Cookie::Cookie()
 {
@@ -27,7 +27,7 @@ Cookie::Cookie(Cookie &cookie, float quantity_m)
     name=cookie.name;
     pricePerKg=cookie.pricePerKg;
     amount=quantity_m;
-    totalPrice=amount*pricePerKg;
+//    totalPrice=amount*pricePerKg;
 
 }
 void Cookie::operator-(Cookie cookie)
@@ -42,14 +42,11 @@ void Cookie::operator-(Cookie cookie)
     }
 
 }
-//void Cookie::SetName(string m_name)
-//{
-//    name=m_name;
-//}
-//void Cookie::SetDescription(string m_description)
-//{
-//    description=m_description;
-//}
+double Cookie::GetTotalPrice()
+{
+    return amount*pricePerKg;
+}
+
 void Cookie::SetPrice(double price)
 {
     pricePerKg=price;
@@ -67,14 +64,7 @@ Cookie::~Cookie()
     #endif // DEBUG
 }
 
-//string Cookie::GetName()
-//{
-//    return name;
-//}
-//string Cookie::GetDescription()
-//{
-//    return description;
-//}
+
 const double Cookie::GetPrice()
 {
     return pricePerKg;
@@ -83,7 +73,3 @@ const float Cookie::GetAmount()
 {
     return amount;
 }
-//const bool Cookie::GetGluten()
-//{
-//    return glutenFree;
-//}

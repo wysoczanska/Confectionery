@@ -12,7 +12,14 @@ void Product::SetDescription(string m_description)
 {
     description=m_description;
 }
-
+void Product::SetGluten(bool m_glutenFree)
+{
+    glutenFree=m_glutenFree;
+}
+//double Product::GetTotalPrice()
+//{
+//    return 0;
+//}
 string Product::GetName()
 {
     return name;
@@ -21,7 +28,7 @@ string Product::GetDescription()
 {
     return description;
 }
-const bool Product::GetGluten()
+bool Product::GetGluten()
 {
     return glutenFree;
 }
